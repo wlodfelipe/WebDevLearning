@@ -5,6 +5,7 @@ The software should have the following functionalities:
 
 Add column
 
+<<<<<<< HEAD
 Add tasks inside column
 
 Move column position
@@ -22,3 +23,6 @@ Compatible with all browsers
 Use no framework
 
 Equipe: Felipe Luiz Wlodkowski, Vitor Eduardo Lopes Francisco, Felipe Sena, João Pedro Canhete, Gustavo Gamarra
+=======
+Equipe: Felipe Luiz Wlodkowski, Vitor Eduardo Lopes Francisco, Felipe Sena, João Pedro Canhete, Gustavo Gamarra
+>>>>>>> 9d1b39937d6921b5077c135a2bd4bef3253be611
