@@ -14,5 +14,5 @@ The software should have the following functionalities:
  - Compatible with all browsers
  - Use no framework
 
-Equipe: Felipe Luiz Wlodkowski, Vitor Eduardo Lopes Francisco, Felipe Sena, João Pedro, Gustavo Gamarra, Willian Magalhães.
+Equipe: Felipe Luiz Wlodkowski, Vitor Eduardo Lopes Francisco, Felipe Sena, João Pedro, Gustavo Gamarra, Willian Magalhães..
 
