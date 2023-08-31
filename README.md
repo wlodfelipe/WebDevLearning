@@ -14,5 +14,4 @@ The software should have the following functionalities:
  - Compatible with all browsers
  - Use no framework
 
- teste
- João Pedro
+Equipe: Felipe Luiz Wlodkowski, Vitor Eduardo Lopes Francisco, Felipe Sena, João Pedro
