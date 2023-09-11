@@ -3,8 +3,8 @@
 
 
 :root {
-    background: #0F0E0F;
-    color: #D7D7D7;
+    background: #BDE3F2;
+   /*color: #254559;*/
 }
 
 * {
@@ -14,24 +14,59 @@
     font-family: 'Lato', sans-serif;
 }
 
-body {
-    background-color: #0F0E0F;
+.header-wrapper {
+    display: flex;
+    padding: 20px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+header {
+    background-color: #E2E3E5;
+    display: block;
+    width: 100%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+.containersearch{
     display: flex;
     flex-direction: row;
+    background-color:#f77700;
+    border:solid 1px;
+    border-radius:15px;
+    width:300px;
+}
+#txtBusca{
+    float:left;
+    background-color:white;
+    padding-left:5px;
+    font-style:italic;
+    font-size:18px;
+    border:none;
+    height:32px;
+    width:260px;
+  }
+body {
+    
+   
 }
 
 #addColumnBtn {
-    background-color: #D7D7D7;
-    width: 15rem;
-    height: 5rem;
-    border-radius: 1rem;
-    font-size: 16px;
-    cursor: pointer;
+    background-color: white;
+    border-radius: 12px;
+    height: auto;
+    min-height: 32px;
+    padding: 8px;
+    transition: background 85ms ease-in,opacity 40ms ease-in,border-color 85ms ease-in;
 }
 
 #mainContent {
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    padding: 20px;
 }
 
 .listTasks {
@@ -41,9 +76,11 @@ body {
     border-radius: 1rem;
     margin: 0 1rem;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row-reverse;
+    align-items: stretch;
     padding: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .addTaskContent {
