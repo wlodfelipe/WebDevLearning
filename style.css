@@ -63,10 +63,11 @@ body {
 
 #mainContent {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     align-items: flex-start;
     flex-wrap: nowrap;
     padding: 20px;
+    justify-content: flex-end;
 }
 
 .listTasks {
