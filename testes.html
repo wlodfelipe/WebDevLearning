@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oii</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <header class="ContainerHeader">
+        <div class="header-wrapper">
+            <!-- Cor do header -->
+            <div class="Containerlogo">
+                <!-- Clase para editar el tamaño del logo -->
+                <img src="" alt="logoazu" />
+                <!-- Imagen de la logo -->
+            </div>
+        </div>
+        <div class="btcolor">
+            <div button id="colorButton" class="dropbtn">Trocar de cor</button>
+                <div id="colors" class="dropcolor"> <!-- botoes de cores -->
+                    <button class="color-option" style="background-color: #00ced1"></button>
+                    <button class="color-option" style="background-color: #dc143c"></button>
+                    <button class="color-option" style="background-color: #ffffff"></button>
+                    <button class="color-option" style="background-color: #000000"></button>
+                    <button class="color-option" style="background-color: #1eff00"></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="columns">
+        <div class="column" id="todo"></div>
+        <div id="todo-tasks" class="tasks"></div>
+        <h2>Para Fazer</h2>
+        <form class"add-task-form">
+            <label for="todo-task-name">Nome:</label>
+            <input type="text" id="todo-task-name" required>
+            <label for="todo-task-description">Descricao:</label>
+            <textarea id="todo-task-description"></textarea>
+            <button type="button" onclick="addTask()">Adicionar Tarefa</button>
+        </form>
+
+
+        <div class="column" id="inProgress">
+            <div id="inProgress-tasks" class="tasks"></div>
+            <h2>Em progresso</h2>
+            <form class="add-task-form">
+                <label for="todo-task-name">Nome:</label>
+                <input type="text" id="todo-task-name" required>
+                <label for="todo-task-description">Descricao:</label>
+                <textarea id="todo-task-description"></textarea>
+                <button type="button">Adicionar Tarefa</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
