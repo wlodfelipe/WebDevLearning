@@ -24,11 +24,6 @@
     align-items: baseline;
 }
 
-.columns {
-    
-}
-
-
     header {
     display: flex;
     background-color: #e2e3e5;
@@ -79,5 +74,6 @@
 }
 
 .column {
+  background-color: white;
   margin: 10px;
 }
