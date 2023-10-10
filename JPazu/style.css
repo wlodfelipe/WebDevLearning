@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+
+/* Font*/
+
+:root {
+    background: #BDE3F2;
+    /*color: #254559;*/
+}
+
+* {
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+    font-size: medium;
+}
+
+.header-wrapper {
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+header {
+    background-color: #E2E3E5;
+    display: flex;
+    width: 100%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    align-items: center;
+
+}
+
+.ContainerLogo {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    height: 70px;
+    width: 70px;
+}
+
+.Columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: 2rem;
+    color: rgb(0, 0, 0);
+}
+
+.column form {
+    display: flex;
+    flex-direction: column;
+}
+
+#TaskNameInput {
+    background-color: rgb(208, 205, 205);
+}
+
+.column textarea {
+    resize: none;
+    background-color: rgb(208, 205, 205);
+}
+
+.titleColumn {
+    display: flex;
+    justify-content: center;
+    font-family: Poppins, sans-serif;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.dropbtn {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+    cursor: pointer;
+}
+
+.dropbtn:hover {
+    border-color: #fbff00;
+}
+
+.dropcolor {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    cursor: pointer;
+}
+
+.color-option {
+    height: 35px;
+    width: 100px;
+    cursor: pointer;
+}
