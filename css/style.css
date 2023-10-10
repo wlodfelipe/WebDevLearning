@@ -34,13 +34,8 @@
 
   /* Agrega aquí otros estilos específicos */
 
-  /* Estilos para el selector de colores */
     .dropcolor {
-    display: none;
     cursor: pointer;
-    border-radius: 80px;
-    height: 80px;
-    width: 80px;
     position: absolute;
 }
 
@@ -67,13 +62,15 @@
 }
 
 .columns {
-  align-items: baseline;
   display: flex;
+  justify-content: space-around;
+  
   width: 200px;
 
 }
 
 .column {
   background-color: white;
+  border-radius: 10px;
   margin: 10px;
 }
