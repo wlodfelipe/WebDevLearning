@@ -16,4 +16,5 @@ The software should have the following functionalities:
 
 Equipe: Felipe Luiz Wlodkowski, Vitor Eduardo Lopes Francisco, Felipe Sena, João Pedro, Gustavo Gamarra, Willian Magalhães..
 
-11/09 Adcionado Header, e colunas dinámicas para poder adicionar colunas e tarefas.
+11/09 Adicionado Header, e colunas dinámicas para poder adicionar colunas e tarefas.
+11/10 Adicionado função de trocar a cor do fundo dinamicamente. 
