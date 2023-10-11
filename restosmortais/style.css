@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 
-/* Font*/
+
+body {
+    width: 100%;
+    height: 100vh;
+}
 
 :root {
     background: #BDE3F2;
@@ -26,6 +30,7 @@
 header {
     background-color: #E2E3E5;
     display: block;
+    height: 10vh;
     width: 100%;
     padding-top: 7px;
     padding-bottom: 7px;
@@ -48,10 +53,6 @@ header {
     height:32px;
     width:260px;
   }
-body {
-    
-   
-}
 
 #addColumnBtn {
     background-color: white;

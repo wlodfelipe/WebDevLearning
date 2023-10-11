@@ -81,27 +81,27 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   
   function changeColor(color) {
-    document.getElementsByTagName("BODY")[0].style.backgroundColor = color;
+    document.getElementsByTagName('body')[0].style.backgroundColor = color;
     saveBackgroundColor(color);
   }
   
   function saveBackgroundColor(hexadecimalColor) {
-    localStorage.setItem("background-color", hexadecimalColor);
+    localStorage.setItem('background-color', hexadecimalColor);
   }
   
   function loadColor() {
-    var backgroundColor = localStorage.getItem("background-color");
+    var backgroundColor = localStorage.getItem('background-color');
     if (backgroundColor) {
         changeColor(backgroundColor);
     }
   }
   
   function toggleColorPicker() {
-    var colorSelector = document.getElementById("colors");
-    if (colorSelector.style.display === "none" || colorSelector.style.display === "") {
-        colorSelector.style.display = "block";
+    var colorSelector = document.getElementById('colors');
+    if (colorSelector.style.display === 'none' || colorSelector.style.display === "") {
+        colorSelector.style.display = 'block';
     } else {
-        colorSelector.style.display = "none";
+        colorSelector.style.display = 'none';
     }
   }
   
