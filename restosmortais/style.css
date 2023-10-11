@@ -136,3 +136,39 @@ input {
     border-radius: 0.5rem;
     cursor: pointer;
 }
+
+
+
+
+/* Estilos para el selector de colores */
+.dropcolor {
+    display: none;
+    cursor: pointer;
+    border-radius: 80px;
+    height: 80px;
+    width: 80px;
+    position: absolute;
+  }
+  
+  /* Estilos para el botón "Trocar de cor" */
+  .dropbtn {
+    font-weight: 200;
+    border-radius: 50px;
+    background-color: #ffffff;
+    cursor: pointer;
+    width: 100px;
+    height: 35px;
+    margin-left: -50px;
+  }
+  
+  .dropbtn:hover {
+    border-color: #fbff00;
+  }
+  
+  /* Estilos para los botones de color */
+  .color-option {
+    height: 35px;
+    width: 100px;
+    cursor: pointer;
+  }
+  
