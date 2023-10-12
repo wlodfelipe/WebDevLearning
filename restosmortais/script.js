@@ -26,8 +26,10 @@ function createColumn() {
         newColumn.remove()
     })
 
+    addColumnBtn.remove()
+
     newDiv.append(newInput, newButton)
-    mainContent.appendChild(newColumn)
+    mainContent.append(newColumn, addColumnBtn)
     newColumn.append(newDiv, removeColumnBtn) 
     idControl++
 }
