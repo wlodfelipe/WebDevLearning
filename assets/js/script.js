@@ -28,20 +28,4 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // ----------  somente a parte da coluna ------------------
-function addTask() {
-    var taskText = document.getElementById('newTask').value
-
-    if (taskText === "") {
-        alert('por favor, isira uma tarefa.')
-        return
-    }
-
-    var newTaskItem = document.createElement('li')
-    newTaskItem.className = 'taskItem'
-
-    newTaskItem.appendChild(document.createTextNode(taskText))
-
-    document.getElementById('taskList').appendChild(newTaskItem)
-
-    document.getElementById('newTask').value = ''
-}
+// em progresso
