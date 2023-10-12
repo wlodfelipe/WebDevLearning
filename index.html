@@ -36,7 +36,6 @@
             </form>
         </div>
 
-
         <div class="column" id="inProgress">
             <div id="inProgress-tasks" class="tasks"></div>
             <h2>Em progresso</h2>
@@ -59,6 +58,11 @@
                 <textarea id=finished-task-description"></textarea>
                 <button type="button" onclick="addTask()">Adicionar Tarefa</button>
             </form>
+        </div>
+
+        <div class="createColumn" id="mainContent">
+            <div class="scrollbar"></div>             <!--quando recebe click executa a funçao-->
+            <button id="addColumnBtn" class="createColumnBtn" onclick="createColumn()">Adicionar Coluna</button>
         </div>
 
     </div>

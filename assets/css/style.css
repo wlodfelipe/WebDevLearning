@@ -70,16 +70,88 @@
 
 .columns {
   display: flex;
-  justify-content: space-around;
   width: 200px;
 
 }
 
 .column {
   background-color: white;
+  display: flex;
   flex-direction: column;
   padding: 1rem;
   border-radius: 1rem;
   margin: 2rem;
   color: rgb(0, 0, 0);
+}
+
+#addColumnBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+  height: auto;
+  cursor: pointer;
+  min-height: 32px;
+  padding: 8px;
+}
+
+#mainContent {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  padding: 20px;
+}
+
+.listTasks {
+  width: 15rem;
+  height: fit-content;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  margin: 0 1rem;
+  padding: 10px;
+}
+
+.addTaskContent {
+  margin: 0 0, 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.addTaskContent button {
+  cursor: pointer;
+}
+
+#addTaskBtn {
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.taskContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 12rem;
+  background-color: white;
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.removeBtn {
+  width: 1rem;
+  cursor: pointer;
+}
+
+.removeColumnBtn {
+  padding: 10px;
+  margin-top: 5px;
+  width: 90%;
+  border-radius: 0.5rem;
+  cursor: pointer;
 }

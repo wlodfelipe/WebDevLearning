@@ -9,7 +9,7 @@ body {
 
 :root {
     background: #BDE3F2;
-   /*color: #254559;*/
+    /*color: #254559;*/
 }
 
 * {
@@ -27,6 +27,7 @@ body {
     justify-content: space-around;
     align-items: center;
 }
+
 header {
     background-color: #E2E3E5;
     display: block;
@@ -36,24 +37,24 @@ header {
     padding-bottom: 7px;
 }
 
-.containersearch{
+.containersearch {
     display: flex;
     flex-direction: row;
-    background-color:#f77700;
-    border:solid 1px;
-    border-radius:15px;
-    width:300px;
+    background-color: #f77700;
+    border: solid 1px;
+    border-radius: 15px;
+    width: 300px;
 }
 
-#txtBusca{
-    float:left;
-    background-color:white;
-    padding-left:5px;
-    font-style:italic;
-    font-size:18px;
-    border:none;
-    height:32px;
-    width:260px;
+#txtBusca {
+    float: left;
+    background-color: white;
+    padding-left: 5px;
+    font-style: italic;
+    font-size: 18px;
+    border: none;
+    height: 32px;
+    width: 260px;
 }
 
 #addColumnBtn {
@@ -66,7 +67,6 @@ header {
     cursor: pointer;
     min-height: 32px;
     padding: 8px;
-   
 }
 
 #mainContent {
@@ -137,6 +137,7 @@ input {
     border-radius: 0.5rem;
     cursor: pointer;
 }
+
 /* Estilos para el selector de colores */
 .dropcolor {
     display: none;
@@ -145,32 +146,32 @@ input {
     height: 80px;
     width: 80px;
     position: absolute;
-  }
-  
-  /* Estilos para el botón "Trocar de cor" */
-  .dropbtn {
+}
+
+/* Estilos para el botón "Trocar de cor" */
+.dropbtn {
     color: #000000;
     display: inline-block;
     position: relative;
     transition: transform 0.20s;
     cursor: pointer;
-    
-  }
-  
+
+}
 
 
 
-  .dropbtn:hover {
-    transform: scale(1.03); /* Zoom de 1.2x ao passar o mouse */
-    
-  }
-  
-  /* Estilos para los botones de color */
-  .color-option {
+
+.dropbtn:hover {
+    transform: scale(1.03);
+    /* Zoom de 1.2x ao passar o mouse */
+
+}
+
+/* Estilos para los botones de color */
+.color-option {
     border-radius: 5px;
     border: 2px solid #000000;
     height: 35px;
     width: 100px;
     cursor: pointer;
-  }
-  
+}

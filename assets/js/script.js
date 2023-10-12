@@ -28,4 +28,57 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // ----------  somente a parte da coluna ------------------
-// em progresso
+
+//atribui a const mainContent ao id mainContent que está na div de criar coluna
+const mainContent = document.getElementById('mainContent');
+
+//atribui a const addColumnBtn que está dentro da div de criar coluna
+const addColumnBtn = document.getElementById('addColumnBtn');
+
+//variavel auxiliar para controlar a quantidade de colunas
+let idControl = 0;
+
+function createColumn() {
+    const newColumn = document.createElement('div'); //a constante newColumn cria uma div e atribui a div a ela mesma
+    newColumn.className = 'listTasks'; //a div da nova coluna recebe a classe listTasks
+
+    newColumn.id = 'listTasks' + idControl; /*a div da nova coluna recebe o id listTasks + o valor de idControl, por exemplo,  
+    se idControl = 1; o id da div vai ser listTasks1 */
+
+    const newDiv = document.createElement('div'); //a const newDiv cria uma nova div e atribui a ela mesma
+    newDiv.className = 'addTaskContent'; //a div da task recebe a classe addTaskContent
+
+    const newInput = document.createElement('input'); //a const newInput cria um input sem tipo e atribui a ela mesma
+
+    newInput.type = 'text'; //o input criado antes recebe o tipo como texto
+
+    newInput.placeholder = 'Adicione uma Task'; /*atribui um placeholder dentro do input para orientar o que
+    o usuario deve fazer*/
+
+    const newButton = document.createElement('button'); //a const newButton cria um botao e atribui a ela mesma
+    newButton.innerText = '+'; //o texto dentro do botao vai ser um +
+    newButton.id = 'addTaskBtn'; //o id do botao vai ser addTaskBtn
+
+    /* neste caso a nossa const newButton está com um eventListener que ao receber um click executa uma
+    arrowfunction, uma funçao sem nome, que realiza o addTask, tendo de parametro o newInput e newColumn*/
+    newButton.addEventListener('click', () => {
+        addTask(newInput, newColumn);
+    });
+
+    // a const removeColumnBtn cria um botao e atribui a ela mesma
+    const removeColumnBtn = document.createElement('button');
+
+    removeColumnBtn.innerText = 'Remover Coluna'; //o botao recebe o texto dentro dele
+    removeColumnBtn.className = 'removeColumnBtn'; //o botao recebe a classe removeColumnBtn
+
+    /* neste caso a nossa const removeColumnBtn está com um eventListener que ao receber um click executa uma
+    arrowfunction, uma funçao sem nome, que atribui o metodo remove a newColumn, ou seja, a exclui.*/
+    removeColumnBtn.addEventListener('click', () => {
+        newColumn.remove();
+    });
+
+    newDiv.append(newInput, newButton); // anexando o newInput e newButton à newDiv que é o elemento pai
+    mainContent.append(newColumn, addColumnBtn); //anexando a newColumn e addColumnBtn à mainContent que é o elemento pai
+    newColumn.append(newDiv, removeColumnBtn); //anexando a newDiv e removeColumnBtn à newColumn que é o elemento pai
+    idControl++; //a variavel idControl recebe +1 quando a funçao termina
+}
