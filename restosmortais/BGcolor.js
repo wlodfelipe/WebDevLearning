@@ -1,12 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Função de chamada para carregar cores no carregamento da página
     loadColor();
   
-    // Adicione um evento ao botão "Crocar de Cor"
     var colorButton = document.getElementById("colorButton");
     colorButton.addEventListener("click", toggleColorPicker);
   
-    // Obtenha todos os botões coloridos e adicione um evento a cada um
     var colorButtons = document.querySelectorAll(".color-option");
     colorButtons.forEach(function (button) {
         button.addEventListener("click", function () {
