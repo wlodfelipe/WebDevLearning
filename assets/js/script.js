@@ -75,6 +75,7 @@ function createColumn() {
     arrowfunction, uma funçao sem nome, que atribui o metodo remove a newColumn, ou seja, a exclui.*/
     removeColumnBtn.addEventListener('click', () => {
         newColumn.remove();
+        idControl--; //remove um do contador quando exclui a coluna
     });
 
     newDiv.append(newInput, newButton); // anexando o newInput e newButton à newDiv que é o elemento pai

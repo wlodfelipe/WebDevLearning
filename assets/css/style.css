@@ -100,7 +100,6 @@
   display: flex;
   align-items: flex-start;
   flex-wrap: nowrap;
-  padding: 20px;
 }
 
 .listTasks {
@@ -141,6 +140,15 @@
   border-radius: 0.5rem;
   padding: 5px;
   transition: transform 0.3s ease-in-out;
+}
+
+.createColumn{
+  display: flex;
+  flex-direction: row;
+  border-radius: 1rem;
+  margin: 2rem;
+  
+
 }
 
 .removeBtn {
