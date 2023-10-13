@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// ---------- Somente a parte de adicionar coluna ------------------
+/* ---------- Somente a parte de adicionar coluna ------------------
 
 // Atribui a const mainContent ao ID mainContent que está na div de criar coluna.
 const mainContent = document.getElementById('mainContent');
@@ -56,8 +56,8 @@ function createColumn() {
     newButton.innerText = '+'; // O texto dentro do botão será um +.
     newButton.id = 'addColumnBtn'; // O ID do botão será addTaskBtn.
 
-    /* Neste caso, a nossa const newButton está com um eventListener que, ao receber um clique, executa uma
-    arrow function que realiza o addTask, tendo como parâmetro o newInput e newColumn. */
+    // Neste caso, a nossa const newButton está com um eventListener que, ao receber um clique, executa uma
+    arrow function que realiza o addTask, tendo como parâmetro o newInput e newColumn.
     newButton.addEventListener('click', () => {
         addColumnName(newInput, newColumn);
         newInput.remove();
@@ -70,8 +70,8 @@ function createColumn() {
     removeColumnBtn.innerText = 'Remover Coluna'; // O botão recebe o texto dentro dele.
     removeColumnBtn.className = 'removeColumnBtn'; // O botão recebe a classe removeColumnBtn.
 
-    /* Neste caso, a nossa const removeColumnBtn está com um eventListener que, ao receber um clique, executa uma
-    arrow function que atribui o método remove a newColumn, ou seja, a exclui. */
+    // Neste caso, a nossa const removeColumnBtn está com um eventListener que, ao receber um clique, executa uma
+    //arrow function que atribui o método remove a newColumn, ou seja, a exclui
     removeColumnBtn.addEventListener('click', () => {
         newColumn.remove();
         idControl--; // Remove um do contador quando exclui a coluna.
@@ -84,6 +84,7 @@ function createColumn() {
 
     idControl++; // A variável idControl recebe +1 quando a função termina.
 }
+*/
 
 // ----------------- Adicionar tarefas --------------------
 
