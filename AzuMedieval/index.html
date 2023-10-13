@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="ContainerHead">
+        <div class="Containerlogo">
+            <img id="logoAzu" src="../b/img/favicon.ico" alt="logoazu" width="60" height="60" />
+
+        </div>
+    </header>
+
+    <div class="color-switcher">
+
+        <div class="switcher-btn">
+            <i class="fas fa-paint-roller"></i>
+        </div>
+
+
+        <div class="theme-buttons-container">
+            <span class="theme-buttons" data-color="#00ced1" style="background: #00ced1"></span>
+            <span class="theme-buttons" data-color="#dc143c" style="background: #dc143c"></span>
+            <span class="theme-buttons" data-color="#3b3b3b" style="background: #3b3b3b"></span>
+            <span class="theme-buttons" data-color="#000000" style="background: #000000"></span>
+            <span class="theme-buttons" data-color="#BDE3F2" style="background: #BDE3F2"></span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="columns">
+            <div class="column" id="todo">
+                <h2>A Fazer</h2>
+                <form onsubmit="addTask('todo'); return false;">
+                    <input type="text" id="todo-name" placeholder="Nome da Tarefa" required>
+                    <textarea id="todo-description" cols="35" rows="5" placeholder="Descrição da Tarefa"
+                        required></textarea>
+                    <button type="submit">Adicionar</button>
+                </form>
+            </div>
+            <div class="column" id="inProgress">
+                <h2>Em Progresso</h2>
+                <form onsubmit="addTask('inProgress'); return false;">
+                    <input type="text" id="inProgress-name" placeholder="Nome da Tarefa" required>
+                    <textarea id="inProgress-description" cols="35" rows="5" placeholder="Descrição da Tarefa"
+                        required></textarea>
+                    <button type="submit">Adicionar</button>
+                </form>
+            </div>
+            <div class="column" id="done">
+                <h2>Concluídas</h2>
+                <form onsubmit="addTask('done'); return false;">
+                    <input type="text" id="done-name" placeholder="Nome da Tarefa" required>
+                    <textarea id="done-description" cols="35" rows="5" placeholder="Descrição da Tarefa"
+                        required></textarea>
+                    <button type="submit">Adicionar</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="tasks-container">
+        <!-- Aqui serão exibidas as tarefas carregadas do Local Storage -->
+    </div>
+
+    <script src="script.js"></script>
+    <script src="BGcolor.js"></script>
+</body>
+
+</html>
