@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// ----------  somente a parte da coluna ------------------
+// ----------  somente a parte de adicionar coluna ------------------
 
 //atribui a const mainContent ao id mainContent que está na div de criar coluna
 const mainContent = document.getElementById('mainContent');
@@ -82,4 +82,60 @@ function createColumn() {
     mainContent.append(newColumn, addColumnBtn); //anexando a newColumn e addColumnBtn à mainContent que é o elemento pai
     newColumn.append(newDiv, removeColumnBtn); //anexando a newDiv e removeColumnBtn à newColumn que é o elemento pai
     idControl++; //a variavel idControl recebe +1 quando a funçao termina
+}
+
+// -----------------adicionar tarefas--------------------
+
+let idControltasks = 0
+
+function addTask(inputElement, columnElement) {
+    if (inputElement.value != '') {
+        const newDiv = document.createElement('div');
+        newDiv.className = 'taskContent';
+        newDiv.id = 'taskContent-' + idControltasks;
+        newDiv.setAttribute('draggable', true);
+        newDiv.addEventListener('dragstart', (event) => {
+            event.dataTransfer.setData('text/plain', event.target.id);
+        });
+        newDiv.addEventListener('dragover', (event) => {
+            event.preventDefault();
+        });
+        newDiv.addEventListener('drop', (event) => {
+            event.preventDefault();
+            const taskId = event.dataTransfer.getData('text/plain');
+            const draggableTask = document.getElementById(taskId);
+
+            if (draggableTask !== newDiv) {
+                // Determine if the task should be moved above or below the target task
+                const rect = newDiv.getBoundingClientRect();
+                const mouseY = event.clientY;
+                const targetMiddle = rect.top + rect.height / 2;
+
+                if (mouseY < targetMiddle) {
+                    newDiv.before(draggableTask);
+                } else {
+                    newDiv.after(draggableTask);
+                }
+            }
+        });
+
+        const newTask = document.createElement('p');
+        newTask.innerText = inputElement.value;
+        newTask.className = 'task';
+        newTask.id = 'task' + idControltasks;
+
+        const removeBtn = document.createElement('button');
+        removeBtn.className = 'removeBtn';
+        removeBtn.innerText = 'x';
+        removeBtn.addEventListener('click', () => {
+            newDiv.remove();
+            idControltasks--;
+        });
+
+        columnElement.appendChild(newDiv);
+        newDiv.append(newTask, removeBtn);
+
+        inputElement.value = '';
+        idControltasks++;
+    }
 }

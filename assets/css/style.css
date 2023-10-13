@@ -122,6 +122,21 @@
   cursor: pointer;
 }
 
+button {
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+button#addColumnBtn.createColumnBtn {
+  width: 106px;
+  height: 54px;
+}
+
+button#addTaskBtn{
+  border: 1px solid;
+}
+
 #addTaskBtn {
   padding: 10px;
   margin: 0 auto;
@@ -147,12 +162,13 @@
   flex-direction: row;
   border-radius: 1rem;
   margin: 2rem;
-  
-
 }
 
-.removeBtn {
-  width: 1rem;
+button.removeBtn {
+  position: relative;
+  left: 20px;
+  width: 20px;
+  height: 30px;
   cursor: pointer;
 }
 

@@ -24,41 +24,6 @@
     </header>
 
     <div class="columns">
-        <div class="column" id="todo">
-            <div id="todo-tasks" class="tasks"></div>
-            <h2>Para Fazer</h2>
-            <form class"add-task-form">
-                <label for="todo-task-name">Nome:</label>
-                <input type="text" id="todo-task-name" required>
-                <label for="todo-task-description">Descricao:</label>
-                <textarea id="todo-task-description"></textarea>
-                <button type="button" onclick="addTask()">Adicionar Tarefa</button>
-            </form>
-        </div>
-
-        <div class="column" id="inProgress">
-            <div id="inProgress-tasks" class="tasks"></div>
-            <h2>Em progresso</h2>
-            <form class="add-task-form">
-                <label for="todo-task-name">Nome:</label>
-                <input type="text" id="todo-task-name" required>
-                <label for="todo-task-description">Descricao:</label>
-                <textarea id="todo-task-description"></textarea>
-                <button type="button" onclick="addTask()">Adicionar Tarefa</button>
-            </form>
-        </div>
-
-        <div class="column" id="finished">
-            <div id="finished-tasks" class="tasks"></div>
-            <h2>Concluido</h2>
-            <form class="add-task-form">
-                <label for=finished-task-name">Nome:</label>
-                <input type="text" id=finished-task-name" required>
-                <label for=finished-task-description">Descricao:</label>
-                <textarea id=finished-task-description"></textarea>
-                <button type="button" onclick="addTask()">Adicionar Tarefa</button>
-            </form>
-        </div>
 
         <div class="createColumn" id="mainContent">           <!--quando recebe click executa a funçao-->
             <button id="addColumnBtn" class="createColumnBtn" onclick="createColumn()">Adicionar Coluna</button>
