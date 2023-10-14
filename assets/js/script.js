@@ -1,46 +1,30 @@
 /* Adiciona um eventListener que só deixará essas funções carregarem quando o DOM
 for completamente carregado, assim evitando que as funções atropelem a estrutura do site.
 (Dá para adicionar outras funções que precisam disso aqui também, como das colunas) */
+document.addEventListener("DOMContentLoaded", function () {
+    const colorInput = document.getElementById('colors');
+    const body = document.querySelector('body');
 
-// Carrega a cor salva do armazenamento local
-loadColor();
+    colorInput.addEventListener('input', () => {
+        const selectedColor = colorInput.value;
+        body.style.backgroundColor = selectedColor;
+        saveBackgroundColor(selectedColor);
+    });
 
-// Adiciona um ouvinte de eventos ao botão do seletor de cores para abrir o seletor de cores
-document.querySelector('.switcher-btn').onclick = () => {
-  document.querySelector('.color-switcher').classList.toggle('active');
-};
+    // Vai salvar a cor escolhida pelo usuário dentro do localStorage, pegando a propriedade do background-color.
+    function saveBackgroundColor(hexadecimalColor) {
+        localStorage.setItem("background-color", hexadecimalColor);
+    }
 
-// Adiciona ouvintes de eventos aos botões de tema para alterar a cor de fundo
-let themeButtons = document.querySelectorAll('.theme-buttons');
-
-themeButtons.forEach(color => {
-  color.addEventListener('click', () => {
-    let dataColor = color.getAttribute('data-color');
-    document.querySelector(':root').style.setProperty('--main-color', dataColor);
-
-    // Altera a cor de fundo imediatamente
-    changeColor(dataColor);
-
-    // Salva a cor escolhida no armazenamento local
-    saveBackgroundColor(dataColor);
-  });
+    // Vai pegar a cor salva no localStorage (se tiver) e rodá-la toda vez que o site atualizar.
+    window.addEventListener('load', () => {
+        const savedColor = localStorage.getItem("background-color");
+        if (savedColor) {
+            body.style.backgroundColor = savedColor;
+            colorInput.value = savedColor;
+        }
+    });
 });
-
-function changeColor(color) {
-  document.getElementsByTagName('body')[0].style.backgroundColor = color;
-}
-
-function saveBackgroundColor(hexadecimalColor) {
-  localStorage.setItem('data-color', hexadecimalColor);
-}
-
-function loadColor() {
-  var backgroundColor = localStorage.getItem('data-color');
-  if (backgroundColor) {
-    changeColor(backgroundColor);
-  }
-}
-  
 
 /* ---------- Somente a parte de adicionar coluna ------------------
 
@@ -101,6 +85,12 @@ function createColumn() {
     idControl++; // A variável idControl recebe +1 quando a função termina.
 }
 */
+//---expandir textarea automaticamente:---
+function autoExpand(id) {
+    const textarea = document.getElementById(id);
+    textarea.style.height = 'auto';
+    textarea.style.height = textarea.scrollHeight + 'px';
+}
 
 // ----------------- Adicionar tarefas --------------------
 

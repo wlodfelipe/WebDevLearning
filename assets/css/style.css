@@ -8,17 +8,17 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;    }
 
   /* Estilos para el cuerpo de la página */
-  body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: var(--main-color);
-  }
+    .body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
 
   /* Estilos para el encabezado */
-    .ContainerHeader {
+.ContainerHeader {
     display: flex;
+    width: 100%;
     flex-direction: row;
     padding: 15px;
     flex-wrap: nowrap;
@@ -42,7 +42,8 @@
 
     .dropcolor {
     cursor: pointer;
-    top: 20px;
+    top: 30px;
+    width: 30px;
     right: 50px;
     position: absolute;
 }
@@ -59,7 +60,7 @@
 }
 
     .dropbtn:hover {
-    border-color: #fbff00;
+    border-color: 2px solid #fbff00;
 }
 
   /* Estilos para los botones de color */
@@ -72,17 +73,16 @@
 .columns {
   display: flex;
   width: 200px;
-
 }
 
-.column {
+#todo, #inProgress, #finished {
   background-color: white;
-  display: flex;
   flex-direction: column;
   padding: 1rem;
   border-radius: 1rem;
-  margin: 2rem;
-  color: rgb(0, 0, 0);
+  margin: 2rem 0rem 0rem 2rem;
+  color: black;
+  height: fit-content;
 }
 
 #addColumnBtn {
@@ -103,13 +103,23 @@
   flex-wrap: nowrap;
 }
 
-.listColumn {
-  width: 15rem;
-  height: fit-content;
-  background-color: #ffffff;
-  border-radius: 1rem;
-  margin: 0 1rem;
-  padding: 10px;
+#todo-form , #inProgress-form, #finished-form {
+  display: flex;
+  flex-flow: column;
+}.tasks {
+  display: flex;
+  height: 3px;
+  flex-direction: column;
+} h2 { text-align: center; padding: 2px;}
+
+ textarea, input {
+  width: 170px;
+  border: solid black 2px;
+  border-radius: 10px;
+  resize: none;
+  max-height: 20rem;
+  overflow: hidden;
+  padding: 4px;
 }
 
 .addColumnName {
@@ -124,7 +134,11 @@
 }
 
 button {
+  display: flex;
   border: 1px solid;
+  margin: 15px;
+  align-self: center;
+  justify-content: center;
   border-radius: 10px;
   padding: 5px;
 }
@@ -166,6 +180,7 @@ button#addTaskBtn{
 }
 
 button.removeBtn {
+  display: flex;
   right: 12px;
   cursor: pointer;
 }
@@ -177,76 +192,3 @@ button.removeBtn {
   border-radius: 0.5rem;
   cursor: pointer;
 }
-
-
-.color-switcher{
-  position: fixed;
-  top: 12px; right:-360px;
-  width: 350px;
-  padding: 9px;
-  background: #ffffff;
-  border-radius: 6px;
-  z-index: 1000;
-  color: var(--main-color);
-  border: solid 2px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  transition: transform 0.5s ease;
-
-}
-.color-switcher:hover{
-  transform: scale(1.01); 
-}
-.color-switcher.active{
-  right: 0px;
-}
-.color-switcher .switcher-btn{
-  position: absolute;
-  top: -1.7px; left: -83px;
-  background: #ffffff;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 35px;
-  border-radius: 5px;
-  border: solid 2px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-
-}
-.color-switcher .theme-buttons-container{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  height: 42px;
-  
-}
-
-@keyframes shake {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-1  px);
-  }
-  50% {
-    transform: translateX(2px);
-  }
-  75% {
-    transform: translateX(-2px);
-  }
-  100% {
-    transform: translateX(1px);
-  }
-} 
-
-.color-switcher .theme-buttons-container .theme-buttons{
-  display: flex;
-  margin:  -1px 6px;
-  height: 3rem;
-  width: 3rem;
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease;
-}
-
-.color-switcher .theme-buttons-container .theme-buttons:hover{
-  animation: shake 0.6s ease;  }

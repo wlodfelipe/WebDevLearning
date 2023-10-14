@@ -4,13 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="autocomplete" content="off">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon.ico">
     <title>Azu</title>
     <link rel="stylesheet" href="assets/css/style.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
 </head>
 
 <body>
@@ -22,34 +19,21 @@
                 <img src="assets/img/AzuSemfundo.png" alt="logoazu" /> <!-- Imagen de la logo -->
             </div>
         </div>
+        <div class="btcolor">
+            <input id="colors" type="color" class="dropcolor">
+        </div>
     </header>
-
-    <div class="color-switcher">
-
-        <div class="switcher-btn">
-            <i class="fas fa-paint-roller"></i>
-        </div>
-
-
-        <div class="theme-buttons-container">
-            <span class="theme-buttons" data-color="#00ced1" style="background: #00ced1"></span>
-            <span class="theme-buttons" data-color="#dc143c" style="background: #dc143c"></span>
-            <span class="theme-buttons" data-color="#3b3b3b" style="background: #3b3b3b"></span>
-            <span class="theme-buttons" data-color="#000000" style="background: #000000"></span>
-            <span class="theme-buttons" data-color="#BDE3F2" style="background: #BDE3F2"></span>
-        </div>
-    </div>
 
     <div class="columns">
 
         <div class="column" id="todo">
             <div id="todo-tasks" class="tasks"></div>
             <h2>Para Fazer</h2>
-            <form class"add-task-form">
+            <form id="todo-form">
                 <label for="todo-task-name">Nome:</label>
                 <input type="text" id="todo-task-name" required>
                 <label for="todo-task-description">Descricao:</label>
-                <textarea id="todo-task-description"></textarea>
+                <textarea oninput="autoExpand('todo-task-description')" id="todo-task-description"></textarea>
                 <button type="button" onclick="addTask()">Adicionar Tarefa</button>
             </form>
         </div>
@@ -57,28 +41,29 @@
         <div class="column" id="inProgress">
             <div id="inProgress-tasks" class="tasks"></div>
             <h2>Em progresso</h2>
-            <form class="add-task-form">
-                <label for="todo-task-name">Nome:</label>
-                <input type="text" id="todo-task-name" required>
-                <label for="todo-task-description">Descricao:</label>
-                <textarea id="todo-task-description"></textarea>
+            <form id="inProgress-form">
+                <label for="inProgress-task-name">Nome:</label>
+                <input type="text" id="inProgress-task-name" required>
+                <label for="inProgress-task-description">Descricao:</label>
+                <textarea oninput="autoExpand('inProgress-task-description')" id="todo-task-description"></textarea>
                 <button type="button" onclick="addTask()">Adicionar Tarefa</button>
+                
             </form>
         </div>
 
         <div class="column" id="finished">
             <div id="finished-tasks" class="tasks"></div>
-            <h2>Concluido</h2>
-            <form class="add-task-form">
-                <label for=finished-task-name">Nome:</label>
-                <input type="text" id=finished-task-name" required>
-                <label for=finished-task-description">Descricao:</label>
-                <textarea id=finished-task-description"></textarea>
+            <h2>Concluído</h2>
+            <form id="finished-form">
+                <label for="finished-task-name">Nome:</label>
+                <input type="text" id="finished-task-name" required>
+                <label for="finished-task-description">Descricao:</label>
+                <textarea oninput="autoExpand('finished-task-description')" id="finished-task-description"></textarea>
                 <button type="button" onclick="addTask()">Adicionar Tarefa</button>
             </form>
         </div>
-    
-    <!--
+
+        <!--
         <div class="createColumn" id="mainContent">          quando recebe click executa a funçao
             <button id="addColumnBtn" class="createColumnBtn" onclick="createColumn()">Adicionar Coluna</button>
         </div>
@@ -87,6 +72,7 @@
     </div>
 
     <script src="assets/js/script.js"></script>
+    
 </body>
 
 </html>
