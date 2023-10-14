@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="autocomplete" content="off">
     <title>Azu</title>
-    <link rel="stylesheet" href="css/style.css"> <!--verificar o path plz-->
+    <link rel="stylesheet" href="assets/css/style.css"> <!--verificar o path plz-->
 </head>
 
 <body onload="loadTasks()">   
@@ -42,13 +42,13 @@
             <input type="text" id="Done-task-name">
             <label for="Done-task-description">Descrição</label>
             <textarea id="Done-task-description"></textarea>
-            <!--<button type="button" onclick="addTask('Done')">Adicionar Tarefa</button> -->
-            <button type="button" onclick="loadTasks()">Adicionar Tarefa</button>
+            <button type="button" onclick="addTask('Done')">Adicionar Tarefa</button>
+            
         </form>
     </div>
     
 </body>
-    <script src="js/script.js">
+    <script src="assets/js/script.js">
         document.onload = loadTasks();
         window.onload = loadTasks(); 
         loadTasks();
