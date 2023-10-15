@@ -1,13 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;700&display=swap');
     
-
 body {
     width: 100%;
     height: 100vh;
     background-color: var(--main-color);
 
 }
-
 :root{
     --main-color:#BDE3F2;
 }
@@ -19,7 +17,7 @@ body {
     box-sizing: border-box;
     text-transform: uppercase;
     transition:all  .2s linear;
-    margin: 0 0 8px; /* Espaçamento inferior para separar o nome da descrição */
+    margin: 0 0 8px;
 
 }
 
@@ -32,15 +30,13 @@ header {
     padding-bottom: 20px; /* Aumente o valor da margem inferior do cabeçalho */
 }
 
-.Containerlogo {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    padding: 15px;
-}
-
-#LogoAzu{
-    width: 122rem;
+#logoAzu {
+    position: relative;
+    width: 6%; /* ou width: 200px; */
+    max-width: 300px;
+    min-width: 90px;
+    height: auto; /* Escolha o tamanho máximo desejado */
+    margin-top: -5px;
 }
 
 .color-switcher{
@@ -82,7 +78,6 @@ header {
     height: 42px;
     
 }
-
 @keyframes shake {
     0% {
       transform: translateX(0);
@@ -100,7 +95,6 @@ header {
       transform: translateX(1px);
     }
   } 
-
 .color-switcher .theme-buttons-container .theme-buttons{
     display: flex;
     margin:  -1px 6px;
@@ -111,24 +105,23 @@ header {
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s ease;
 }
-
-  .color-switcher .theme-buttons-container .theme-buttons:hover{
-    animation: shake 0.6s ease;  }
+.color-switcher .theme-buttons-container .theme-buttons:hover{
+    animation: shake 0.6s ease;
+}
 .columns {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-
+    overflow: hidden;
 }
 .column {
-    display: flex;
-    flex-direction: column;
+    width: 400px;
     background-color:#E2E3E5; 
     padding: 1rem;
     border-radius: 1rem;
     margin: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-
+    height: fit-content;
 }
 .column h2 {
     display: flex;
@@ -137,30 +130,15 @@ header {
     color: #818181;
     margin-bottom: 20px;
     border-bottom: 3px solid #818181;
-    
 }
-#todo-name {
+#todo-name, #done-name, #inProgress-name {
     background-color: #ffffff;
     font-size: medium;
     font-style: italic;
     padding: 5px;
     border-radius: 3px;
-    border: none;
-}
-
-#inProgress-name {
-    font-size: medium;
-    font-style: italic;
-    padding: 5px;
-    border-radius: 3px;
-    border: none;
-}
-#done-name {
-    font-size: medium;
-    font-style: italic;
-    padding: 5px;
-    border-radius: 3px;
-    border: none;
+    border: none; 
+    outline:#818181 2px solid;   
 }
 .column textarea {
     resize: none;
@@ -169,24 +147,26 @@ header {
     padding: 5px;
     border-radius: 3px;
     border: none;
+    outline:#818181 2px solid;   
+
 }
-.task {
-    display: flex;
+.taskElement {
     flex-direction: column;
     background: #ffffff;
-    border-radius: 4px; 
+    border-radius: 5px;     
     padding: 8px; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
-.task h3 {
+.taskTitle {
     padding: 2px;
     font-size: 20px; 
     color: #818181; 
 }
-.task p {
+.taskDescription {
     padding: 2px;
     font-size: 14px; 
     color: #000000; 
+    word-wrap: break-word;
 }
 button {
     display: flex;
@@ -195,7 +175,7 @@ button {
     border: none; 
     border-radius: 4px; 
     padding: 12px;
-    cursor: pointer; 
+    cursor: pointer;    
 }
 button:hover {
     background: #565656; 

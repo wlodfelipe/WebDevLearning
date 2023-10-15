@@ -18,3 +18,4 @@ Equipe: Felipe Luiz Wlodkowski, Vitor Eduardo Lopes Francisco, Felipe Sena, Joã
 
 11/09 Adicionado Header, e colunas dinámicas para poder adicionar colunas e tarefas.
 11/10 Adicionado função de trocar a cor do fundo dinamicamente. 
+15/10 Completei meu codigo ...

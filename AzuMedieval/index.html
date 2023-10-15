@@ -14,9 +14,9 @@
 
 <body>
 
-    <header class="ContainerHead">
-        <div class="Containerlogo">
-            <img id="logoAzu" src="../AzuMedieval/img/favicon.ico" alt="logoazu" width="60" height="60" />
+    <header class="containerHead">
+        <div class="containerlogo">
+            <img id="logoAzu" src="../AzuMedieval/img/LogoAzuAtt.png" alt="logoazu" width="60" height="60" />
 
         </div>
     </header>
@@ -41,37 +41,42 @@
         <div class="columns">
             <div class="column" id="todo">
                 <h2>A Fazer</h2>
-                <form onsubmit="addTask('todo'); return false;">
+                <form>
                     <input type="text" id="todo-name" placeholder="Nome da Tarefa" required>
                     <textarea id="todo-description" cols="35" rows="5" placeholder="Descrição da Tarefa"
                         required></textarea>
-                    <button type="submit">Adicionar</button>
+                    <button onclick="addTask('todo')" type="button">Adicionar</button>
                 </form>
+                <div id="todo-taskContent">
+        <!-- as tasks irá ser add aqui dentro-->
+                </div>
             </div>
             <div class="column" id="inProgress">
                 <h2>Em Progresso</h2>
-                <form onsubmit="addTask('inProgress'); return false;">
+                <form>
                     <input type="text" id="inProgress-name" placeholder="Nome da Tarefa" required>
                     <textarea id="inProgress-description" cols="35" rows="5" placeholder="Descrição da Tarefa"
                         required></textarea>
-                    <button type="submit">Adicionar</button>
+                    <button onclick="addTask('inProgress')" type="button">Adicionar</button>
                 </form>
+                <div id="inProgress-taskContent">
+        <!-- as tasks irá ser add aqui dentro-->
+
+                </div>
             </div>
             <div class="column" id="done">
                 <h2>Concluídas</h2>
-                <form onsubmit="addTask('done'); return false;">
+                <form>
                     <input type="text" id="done-name" placeholder="Nome da Tarefa" required>
                     <textarea id="done-description" cols="35" rows="5" placeholder="Descrição da Tarefa"
                         required></textarea>
-                    <button type="submit">Adicionar</button>
+                    <button onclick="addTask('done')" type="button">Adicionar</button>
                 </form>
+                <div id="done-taskContent">
+    <!-- as tasks irá ser add aqui dentro-->
+                </div>
             </div>
         </div>
-
-    </div>
-
-    <div id="tasks-container">
-        <!-- Aqui serão exibidas as tarefas carregadas do Local Storage -->
     </div>
 
     <script src="script.js"></script>

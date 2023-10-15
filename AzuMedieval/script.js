@@ -1,19 +1,16 @@
-function changeBackgroundColor() {
-    const color = document.getElementById("background-color").value;
-    document.body.style.backgroundColor = color;
-}
-
 function createTaskElement(name, description, columnId) {
-    const taskElement = document.createElement("div");
-    taskElement.className = "task";
+    const taskElement = document.createElement('div');
+    taskElement.className = 'taskElement';
     taskElement.innerHTML = `
-        <h3>${name}</h3>
-        <p>${description}</p>
-        <button onclick="removeTask(this)">X Remover</button>
+        <h3 class="taskTitle">${name}</h3>
+        <p class="taskDescription">${description}</p>
+        <button onclick="removeTask(parentElement)">X Remover</button>
     `;
 
     const column = document.getElementById(columnId);
     column.appendChild(taskElement);
+
+    return taskElement;
 }
 
 function addTask(columnId) {
@@ -23,45 +20,67 @@ function addTask(columnId) {
     const name = nameField.value;
     const description = descriptionField.value;
 
-    createTaskElement(name, description, columnId);
-    saveTask(name, description, columnId);
+    if (name !== "" && description !== "") {
 
-    nameField.value = "";
-    descriptionField.value = "";
+        createTaskElement(name, description, columnId);
+        saveTask(name, description, columnId);
+
+        nameField.value = "";
+        descriptionField.value = "";
+    }else{
+        alert("INSIRA UM NOME E DESCRIÇÃO PARA A TASK")
+    }
 }
 
-function saveTask(name, description, columnId) {
-    const task = { name, description };
-    const tasks = JSON.parse(localStorage.getItem(columnId)) || [];
-    tasks.push(task);
-    localStorage.setItem(columnId, JSON.stringify(tasks));
+function saveTask() {
+    const columns = document.querySelectorAll('.column');
+    const tasks = {};
+
+
+    columns.forEach(column => {
+        const columnId = column.id;
+        const tasksColumn = column.querySelectorAll('.taskElement')
+        const taskContent = []
+
+        tasksColumn.forEach(task => {
+            const taskName = task.querySelector('.taskTitle').innerText;
+            const taskDescription = task.querySelector('.taskDescription').innerText
+            taskContent.push({ name: taskName, description: taskDescription })
+        })
+
+        tasks[columnId] = taskContent
+    })
+
+    localStorage.setItem('tasks', (JSON.stringify(tasks)))
+}
+
+
+function removeTask(taskElement) {
+    taskElement.remove()
+    saveTask()
 }
 
 function loadTasks() {
-    const columns = ["todo", "inProgress", "done"];
-    columns.forEach(columnId => {
-        const tasks = JSON.parse(localStorage.getItem(columnId)) || [];
-        tasks.forEach(task => {
-            createTaskElement(task.name, task.description, columnId);
-        });
-    });
-}
+    const columns = document.querySelectorAll('.column');
+    const tasks = JSON.parse(localStorage.getItem('tasks'));
 
-function removeTask(button) {
-    const taskElement = button.parentElement;
-    const column = taskElement.parentElement;
-    const columnName = column.id;
-    const tasks = JSON.parse(localStorage.getItem(columnName)) || [];
-    const taskIndex = Array.from(column.children).indexOf(taskElement);
+    if (tasks) {
+        columns.forEach(column => {
+            const columnId = column.id
+            const taskContent = tasks[columnId]
 
-    if (taskIndex > -1) {
-        tasks.splice(taskIndex, 1);
-        localStorage.setItem(columnName, JSON.stringify(tasks));
+            if (taskContent) {
+                taskContent.forEach(task => {
+                    const taskName = task.name
+                    const taskDescription = task.description
+
+                    const taskElement = createTaskElement(taskName, taskDescription, columnId)
+
+                    document.getElementById(`${columnId}-taskContent`).appendChild(taskElement)
+                })
+            }
+        })
     }
-
-    column.removeChild(taskElement);
-    saveTask();
 }
-
 
 loadTasks();
