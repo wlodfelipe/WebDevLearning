@@ -56,8 +56,12 @@ function saveTask() {
 
 
 function removeTask(taskElement) {
-    taskElement.remove()
-    saveTask()
+    const confirmRemove = confirm('Tem certeza que deseja remover?');
+    if (confirmRemove) {
+        taskElement.remove();
+        saveTask();
+    }
+    console.log(taskElement);
 }
 
 function loadTasks() {
