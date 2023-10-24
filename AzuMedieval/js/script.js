@@ -6,6 +6,8 @@ function createTaskElement(name, description, columnId) {
         <p class="taskDescription">${description}</p>
         <button onclick="removeTask(parentElement)">X Remover</button>
     `;
+    taskElement.draggable = true;
+    taskElement.id = `taskElement-${Date.now()}`;
 
     const column = document.getElementById(columnId);
     column.appendChild(taskElement);
@@ -86,5 +88,46 @@ function loadTasks() {
         })
     }
 }
+
+function allowDrop(event) {
+    console.log("allowDrop+");
+    event.preventDefault();
+}
+
+function dragStart(event) {
+    console.log("Dragstart");
+    console.log(event);
+    event.dataTransfer.setData("text/plain", event.target.id);
+}
+
+function drop(event) {
+    event.preventDefault();
+
+    console.log("Drop")
+    console.log(event)
+
+    const data = event.dataTransfer.getData("text/plain");
+    const draggedElement = document.getElementById(data)
+    let targetColumn = event.target;
+
+    while(targetColumn && !targetColumn.classList.contains('column')){
+        console.log("loopdrop")
+        console.log(targetColumn)
+        targetColumn = targetColumn.parentElement;
+    }
+
+    if(targetColumn){
+        console.log("Target")
+        console.log(targetColumn)
+        const newTask = createTaskElement(
+            draggedElement.querySelector('.taskTitle').innerHTML,
+            draggedElement.querySelector('.taskDescription').innerHTML
+        );
+        targetColumn.querySelector('.tasks').appendChild(newTask);
+        draggedElement.parentElement.removeChild(draggedElement);
+        saveTask();
+    }
+}
+
 
 loadTasks();

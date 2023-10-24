@@ -37,7 +37,7 @@
 
     <div class="container">
         <div class="columns">
-            <div class="column" id="todo">
+            <div class="column" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <h2>A Fazer</h2>
                 <form class="form">
                     <input type="text" id="todo-name" placeholder="Nome da Tarefa" required>
@@ -45,11 +45,11 @@
                         required></textarea>
                     <button onclick="addTask('todo')" type="button">Adicionar</button>
                 </form>
-                <div id="todo-taskContent">
+                <div id="todo-taskContent" ondragover="allowDrop(event)" ondrop="drop(event)">
         <!-- as tasks irá ser add aqui dentro-->
                 </div>
             </div>
-            <div class="column" id="inProgress">
+            <div class="column" id="inProgress" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <h2>Em Progresso</h2>
                 <form class="form">
                     <input type="text" id="inProgress-name" placeholder="Nome da Tarefa" required>
@@ -57,20 +57,20 @@
                         required></textarea>
                     <button onclick="addTask('inProgress')" type="button">Adicionar</button>
                 </form>
-                <div id="inProgress-taskContent">
+                <div id="inProgress-taskContent" ondragover="allowDrop(event)" ondrop="drop(event)">
         <!-- as tasks irá ser add aqui dentro-->
                 </div>
 
             </div>
             <div class="column" id="done">
                 <h2>Concluídas</h2>
-                <form class="form">
+                <div id="done-taskContent" ondragover="allowDrop(event)" ondrop="drop(event)">
+                <form class="form" ondrop="drop(event)" ondragover="allowDrop(event)">
                     <input type="text" id="done-name" placeholder="Nome da Tarefa" required>
                     <textarea id="done-description" cols="35" rows="5" placeholder="Descrição da Tarefa"
                         required></textarea>
                     <button onclick="addTask('done')" type="button">Adicionar</button>
                 </form>
-                <div id="done-taskContent">
     <!-- as tasks irá ser add aqui dentro-->
                 </div>
             </div>
