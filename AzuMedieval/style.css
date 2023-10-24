@@ -34,7 +34,9 @@ header {
 
 #logoAzu {
     display: hidden;
-    
+    width: 75px;
+    height: auto;
+    margin: 0  -130px;
 }
 
 .color-switcher {
