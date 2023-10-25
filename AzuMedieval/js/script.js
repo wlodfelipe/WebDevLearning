@@ -11,9 +11,10 @@ function createTaskElement(name, description, columnId) {
         <button onclick="removeTask(parentElement)">X Remover</button>
     `;
     // Torna o elemento 'taskElement' arrastável
-    taskElement.draggable = true; 
+    taskElement.draggable = true;
     // Define o id do elemento 'taskElement' como 'taskElement-' seguido da data e hora atual em milissegundos
-    taskElement.id = `taskElement-${Date.now()}`;   
+    taskElement.id = `taskElement-${Date.now()}`;
+    taskElement.addEventListener("dragstart", drag);
     // Exibe no console o id do elemento 'taskElement'
     console.log(`ID: ${taskElement.id}`)
     // Seleciona o elemento com o id igual a 'columnId' e o armazena na constante 'column'
@@ -21,6 +22,7 @@ function createTaskElement(name, description, columnId) {
     // Anexa o elemento 'taskElement' ao final do elemento 'column'
     column.appendChild(taskElement);
     // Retorna o elemento 'taskElement'
+    saveTask()
     return taskElement;
 }
 
@@ -36,7 +38,7 @@ function addTask(columnId) {
     if (name !== "" && description !== "") {
         // Cria um novo elemento de tarefa com o nome, descrição e id da coluna fornecidos
         createTaskElement(name, description, columnId);
-    
+
         // Salva a tarefa com o nome, descrição e id da coluna fornecidos
         saveTask(name, description, columnId);
         // Limpa os campos de nome e descrição após a criação da tarefa
@@ -52,24 +54,24 @@ function addTask(columnId) {
 function saveTask() {
     // Seleciona todos os elementos com a classe 'column' e os armazena na constante 'columns'
     const columns = document.querySelectorAll('.column');
-    
+
     // Cria um objeto vazio 'tasks' para armazenar as tarefas
     const tasks = {};
 
     // Para cada coluna, executa a função de callback
     columns.forEach(column => {
         // Obtém o id da coluna e o armazena na constante 'columnId'
-        const columnId = column.id;        
+        const columnId = column.id;
         // Seleciona todos os elementos com a classe 'taskElement' dentro da coluna e os armazena na constante 'tasksColumn'
-        const tasksColumn = column.querySelectorAll('.taskElement')        
+        const tasksColumn = column.querySelectorAll('.taskElement')
         // Cria um array vazio 'taskContent' para armazenar o conteúdo das tarefas
         const taskContent = []
         // Para cada tarefa na coluna, executa a função de callback
         tasksColumn.forEach(task => {
             // Obtém o texto interno do elemento com a classe 'taskTitle' e o armazena na constante 'taskName'
-            const taskName = task.querySelector('.taskTitle').innerText;            
+            const taskName = task.querySelector('.taskTitle').innerText;
             // Obtém o texto interno do elemento com a classe 'taskDescription' e o armazena na constante 'taskDescription'
-            const taskDescription = task.querySelector('.taskDescription').innerText          
+            const taskDescription = task.querySelector('.taskDescription').innerText
             // Adiciona um objeto com o nome e a descrição da tarefa ao array 'taskContent'
             taskContent.push({ name: taskName, description: taskDescription })
         })
@@ -83,11 +85,11 @@ function saveTask() {
 // A função 'removeTask' recebe um parâmetro: 'taskElement'
 function removeTask(taskElement) {
     // Exibe uma caixa de diálogo de confirmação para o usuário com a mensagem 'Tem certeza que deseja remover?'
-    const confirmRemove = confirm('Tem certeza que deseja remover?');   
+    const confirmRemove = confirm('Tem certeza que deseja remover?');
     // Se o usuário clicar em 'OK' na caixa de diálogo de confirmação, 'confirmRemove' será verdadeiro
     if (confirmRemove) {
         // Remove o elemento 'taskElement' do DOM
-        taskElement.remove();       
+        taskElement.remove();
         // Chama a função 'saveTask' para atualizar o armazenamento local após a remoção da tarefa
         saveTask();
     }
@@ -106,7 +108,7 @@ function loadTasks() {
         // Para cada coluna, executa a função de callback
         columns.forEach(column => {
             // Obtém o id da coluna e o armazena na constante 'columnId'
-            const columnId = column.id           
+            const columnId = column.id
             // Obtém o conteúdo da tarefa para a coluna atual do objeto 'tasks' e o armazena na constante 'taskContent'
             const taskContent = tasks[columnId]
             // Verifica se existe conteúdo da tarefa para a coluna atual
@@ -147,34 +149,31 @@ function dragStart(event) {
 }
 
 
-function drop(event) {
-    event.preventDefault();
-
-    console.log("Drop")
-    console.log(event)
-
-    const data = event.dataTransfer.getData("text/plain");
-    console.log('VALOR DA DATA:'+data)
+function drop(ev) {
+    ev.preventDefault();
+    const data = ev.dataTransfer.getData("text");
     const draggedElement = document.getElementById(data)
-    let targetColumn = event.target;
+    let targetColumn = ev.target;
 
-    while(targetColumn && !targetColumn.classList.contains('column')){
-        console.log("loopdrop")
-        console.log(targetColumn)
+    while (targetColumn && !targetColumn.classList.contains('column')) {
         targetColumn = targetColumn.parentElement;
     }
 
-    if(targetColumn){
-        console.log("Target")
-        console.log(targetColumn)
+    if (targetColumn) {
         const newTask = createTaskElement(
             draggedElement.querySelector('.taskTitle').innerText,
-            draggedElement.querySelector('.taskDescription').innerText
+            draggedElement.querySelector('.taskDescription').innerText,
+            draggedElement.id
         );
-        targetColumn.querySelector('.tasks').appendChild(newTask);
+        targetColumn.querySelector('.taskContainer').appendChild(newTask);
         draggedElement.parentElement.removeChild(draggedElement);
         saveTask();
     }
+
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
 }
 
 

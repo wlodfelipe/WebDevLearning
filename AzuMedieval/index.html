@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="../AzuMedieval/css/style.css">
     <link>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -27,12 +28,12 @@
                     <span class="theme-buttons" data-color="#000000" style="background: #000000"></span>
                     <span class="theme-buttons" data-color="#BDE3F2" style="background: #BDE3F2"></span>
                 </div>
-        </div>
-        
+            </div>
+
         </div>
     </header>
 
-  
+
 
     <div class="container">
         <div class="columns">
@@ -44,8 +45,9 @@
                         required></textarea>
                     <button onclick="addTask('todo')" type="button">Adicionar</button>
                 </form>
-                <div id="todo-taskContent" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <!-- as tasks irá ser add aqui dentro-->
+                <div id="todo-taskContent" class="taskContainer" ondragover="allowDrop(event)" ondrop="drop(event)"
+                    ondragstart="drag(event)">
+                    <!-- as tasks irá ser add aqui dentro-->
                 </div>
             </div>
             <div class="column" id="inProgress" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -56,28 +58,31 @@
                         required></textarea>
                     <button onclick="addTask('inProgress')" type="button">Adicionar</button>
                 </form>
-                <div id="inProgress-taskContent" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <!-- as tasks irá ser add aqui dentro-->
+                <div id="inProgress-taskContent" class="taskContainer" ondragover="allowDrop(event)"
+                    ondrop="drop(event)" ondragstart="drag(event)">
+                    <!-- as tasks irá ser add aqui dentro-->
                 </div>
 
             </div>
             <div class="column" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <h2>Concluídas</h2>
                 <div id="done-taskContent" ondragover="allowDrop(event)" ondrop="drop(event)">
-                <form class="form" ondrop="drop(event)" ondragover="allowDrop(event)">
-                    <input type="text" id="done-name" placeholder="Nome da Tarefa" required>
-                    <textarea id="done-description" cols="35" rows="5" placeholder="Descrição da Tarefa"
-                        required></textarea>
-                    <button onclick="addTask('done')" type="button">Adicionar</button>
-                </form>
-    <!-- as tasks irá ser add aqui dentro-->
+                    <form class="form" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <input type="text" id="done-name" placeholder="Nome da Tarefa" required>
+                        <textarea id="done-description" cols="35" rows="5" placeholder="Descrição da Tarefa"
+                            required></textarea>
+                        <button onclick="addTask('done')" type="button">Adicionar</button>
+                    </form>
+                    <div id="done-taskContent" class="taskContainer" ondragover="allowDrop(event)" ondrop="drop(event)"
+                        ondragstart="drag(event)">
+                        <!-- as tasks irá ser add aqui dentro-->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script src="../AzuMedieval/js/script.js"></script>
-    <script src="../AzuMedieval/js/BGcolor.js"></script>
+        <script src="../AzuMedieval/js/script.js"></script>
+        <script src="../AzuMedieval/js/BGcolor.js"></script>
 </body>
 
 </html>
