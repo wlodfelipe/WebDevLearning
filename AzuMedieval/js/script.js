@@ -175,6 +175,25 @@ function drop(ev) {
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
 }
+// Enquanto a coluna alvo não for nula e não tiver a classe 'column', procura pelo seu elemento pai
+while (targetColumn && !targetColumn.classList.contains('column')) {
+    targetColumn = targetColumn.parentElement;
+}
 
+// Se a coluna alvo existir, executa os seguintes passos
+if (targetColumn) {
+    // Cria um novo elemento de tarefa com os mesmos dados do elemento arrastado
+    const newTask = createTaskElement(
+        draggedElement.querySelector('.taskTitle').innerText,
+        draggedElement.querySelector('.taskDescription').innerText,
+        draggedElement.id
+    );
+    // Adiciona o novo elemento de tarefa ao contêiner de tarefas da coluna alvo
+    targetColumn.querySelector('.taskContainer').appendChild(newTask);
+    // Remove o elemento arrastado do seu contêiner original
+    draggedElement.parentElement.removeChild(draggedElement);
+    // Salva a tarefa no armazenamento local
+    saveTask();
+}
 
 loadTasks();
