@@ -1,0 +1,64 @@
+<section id="mainContent">
+    <div class="columns">
+        <div
+            class="column"
+            id="todo"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)">
+            <h1 class="titleColumn">A Fazer</h1>
+
+            <div
+                id="todo-taskContent"
+                ondragstart="drag(event)"
+                ondrop="drop(event)"
+                ondragover="allowDrop(event)"
+                class="taskContainer"></div>
+
+            <form>
+                <label for="todo-taskNameInput">Nome:</label>
+                <input
+                    type="text"
+                    id="todo-taskNameInput" />
+                <label for="todo-taskDescription">Descrição:</label>
+                <textarea
+                    cols="25"
+                    rows="5"
+                    id="todo-taskDescription"></textarea>
+                <button
+                    type="button"
+                    onclick="addTask('todo')">
+                    ADICIONAR TASK +
+                </button>
+            </form>
+        </div>
+
+
+<script>function allowDrop(ev) {
+	ev.preventDefault();
+}
+
+function drag(ev) {
+	ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+	ev.preventDefault();
+	const data = ev.dataTransfer.getData("text");
+	const draggedElement = document.getElementById(data)
+	let targetColumn = ev.target;
+
+	while (targetColumn && !targetColumn.classList.contains('column')) {
+		targetColumn = targetColumn.parentElement;
+	}
+
+	if(targetColumn) {
+		const newTask = createTaskElements(
+			draggedElement.querySelector('.taskTitle').innerText,
+			draggedElement.querySelector('.taskDescription').innerText
+		);
+		targetColumn.querySelector('.taskContainer').appendChild(newTask);
+		draggedElement.parentElement.removeChild(draggedElement);
+		saveTasks();
+	}
+
+}</script>
